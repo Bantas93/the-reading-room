@@ -1,8 +1,76 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <body>
-            
-        </body>
-    </head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Reading Room</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <main class="d-flex justify-content-center mx-auto vh-100 pt-2">
+      <div class="w-75 border px-2">
+        <section class="text-center mb-5">
+          <h1>The Reading Room</h1>
+        </section>
+
+        <section id="form_input_book">
+          <form>
+            <!-- inputan judul buku -->
+            <div class="mb-3 d-flex">
+              <label for="input_book" class="form-label fw-bold w-25 px-2"
+                >Book Title</label
+              >
+              <input type="text" class="form-control" id="input_book" />
+
+              <!-- di Bawah ini teks untuk validasi kalau buku gabisa kosong -->
+              <!-- <div id="input_book_help" class="form-text">
+                You cannot insert empty book name.
+            </div> -->
+            </div>
+            <div class="mb-3 d-flex">
+              <label for="book_creator" class="form-label fw-bold w-25 px-2"
+                >Book Creator</label
+              >
+              <input type="text" class="form-control" id="book_creator" />
+            </div>
+
+            <!-- button untuk submit data -->
+            <div class="text-end py-2">
+              <button type="submit" class="btn border px-3">Add List</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="book_list" class="pt-3">
+          <div style="max-height: 400px; overflow-y: auto">
+            <div style="grid-template-columns: 1fr 1fr" class="d-grid gap-3">
+              <!-- ini untuk per Book -->
+              <div class="p-2 text-center">
+                <div class="card position-relative">
+                  <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success w-25"
+                    >Done !</span
+                  >
+                  <div class="card-header fw-bold bg-secondary text-white">
+                    Book tittle
+                  </div>
+                  <div class="card-body">The Creator is..</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
