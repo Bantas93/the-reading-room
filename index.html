@@ -47,10 +47,11 @@
         <section id="book_list" class="pt-3">
           <div style="max-height: 400px; overflow-y: auto">
             <div style="grid-template-columns: repeat(3, 150px); justify-content: center;" class="d-grid gap-3">
-            </div>>
-              <!-- ini untuk per Book -->
+            </div>
+             
             </div>
         </section>
+
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -63,16 +64,16 @@
       let inputCreator = document.getElementById("book_creator");
       let grid = document.querySelector(".d-grid");
 
-      form.addEventListener("submit", function(event){
-        event.preventDefault();
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
         let title = inputBook.value;
         let creator = inputCreator.value;
         if(title === "" || creator === ""){
           return;
         }
         grid.innerHTML +=
-        '<div class="card position-relative border border-2 border-dark p-2">' +
-          '<div class="card-header fw-bold bg-secondary text-white">' + title + '<div>' +
+        '<div class="card position-relative border border-1 border-dark p-2" id="per_card">' +
+          '<div class="card-header fw-bold bg-secondary text-white" id="title">' + title + '</div>' +
             '<div class="card-body">' + creator + '<div>' +
               '<button onclick="toggleDone(this)" class="btn btn-success btn-sm m-1">Done</button>' +
               '<button onclick="deleteCard(this)" class="btn btn-danger btn-sm m-1">Delete</button>' +
@@ -81,6 +82,7 @@
         inputBook.value = "";
         inputCreator.value = "";
       });
+
       function toggleDone(btn){
         if(btn.innerText === "Done"){
           btn.innerText = "Not Done";
@@ -92,9 +94,19 @@
           btn.classList.add("btn-success");
         }
       }
+
       function deleteCard(btn){
-        btn.parentElement.parentElement.remove();
+        let perCard = document.getElementById("per_card");
+        let title = document.getElementById("title");
+       
+        let textConfirm = `Are you sure delete "${title.innerText}"" book??`
+        if (confirm(textConfirm) == true) {
+          perCard.remove()
+        } else {
+          return
+        }
       }
+
     </script>
   </body>
 </html>
