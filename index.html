@@ -27,10 +27,8 @@
               >
               <input type="text" class="form-control" id="input_book" />
 
-              <!-- di Bawah ini teks untuk validasi kalau buku gabisa kosong -->
-              <!-- <div id="input_book_help" class="form-text">
-                You cannot insert empty book name.
-            </div> -->
+            <div id="input_book_help" class="form-text">
+            </div>
             </div>
             <div class="mb-3 d-flex">
               <label for="book_creator" class="form-label fw-bold w-25 px-2"
@@ -48,29 +46,67 @@
 
         <section id="book_list" class="pt-3">
           <div style="max-height: 400px; overflow-y: auto">
-            <div style="grid-template-columns: 1fr 1fr" class="d-grid gap-3">
-              <!-- ini untuk per Book -->
-              <div class="p-2 text-center">
-                <div class="card position-relative">
-                  <span
-                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success w-25"
-                    >Done !</span
-                  >
-                  <div class="card-header fw-bold bg-secondary text-white">
-                    Book tittle
-                  </div>
-                  <div class="card-body">The Creator is..</div>
-                </div>
-              </div>
+            <div style="grid-template-columns: repeat(3, 150px); justify-content: center;" class="d-grid gap-3">
             </div>
-          </div>
+             
+            </div>
         </section>
-      </div>
+
     </main>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script>
+      let form = document.querySelector("form");
+      let inputBook = document.getElementById("input_book");
+      let inputCreator = document.getElementById("book_creator");
+      let grid = document.querySelector(".d-grid");
+
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        let title = inputBook.value;
+        let creator = inputCreator.value;
+        if(title === "" || creator === ""){
+          return;
+        }
+        grid.innerHTML +=
+        '<div class="card position-relative border border-1 border-dark p-2" id="per_card">' +
+          '<div class="card-header fw-bold bg-secondary text-white" id="title">' + title + '</div>' +
+            '<div class="card-body">' + creator + '<div>' +
+              '<button onclick="toggleDone(this)" class="btn btn-success btn-sm m-1">Done</button>' +
+              '<button onclick="deleteCard(this)" class="btn btn-danger btn-sm m-1">Delete</button>' +
+            '</div>' +
+            '</div>';
+        inputBook.value = "";
+        inputCreator.value = "";
+      });
+
+      function toggleDone(btn){
+        if(btn.innerText === "Done"){
+          btn.innerText = "Not Done";
+          btn.classList.remove("btn-success");
+          btn.classList.add("btn-secondary");
+        } else{
+          btn.innerText = "Done";
+          btn.classList.remove("btn-secondary");
+          btn.classList.add("btn-success");
+        }
+      }
+
+      function deleteCard(btn){
+        let perCard = document.getElementById("per_card");
+        let title = document.getElementById("title");
+       
+        let textConfirm = `Are you sure delete "${title.innerText}"" book??`
+        if (confirm(textConfirm) == true) {
+          perCard.remove()
+        } else {
+          return
+        }
+      }
+
+    </script>
   </body>
 </html>
