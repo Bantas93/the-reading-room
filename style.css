@@ -48,13 +48,13 @@ button[type="submit"]:hover {
 }
 
 .old-brown {
-  background-color: #6b5040;
+  background-color: #6b5040 !important;
 }
 
 .white-brown {
-  background-color: #e7d4bb;
+  background-color: #e7d4bb !important;
 }
 
 .old-brown-text {
-  color: #6b5040;
+  color: #6b5040 !important;
 }
