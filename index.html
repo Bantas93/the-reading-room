@@ -1,112 +1,135 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Reading Room</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <main class="d-flex justify-content-center mx-auto vh-100 pt-2">
-      <div class="w-75 border px-2">
-        <section class="text-center mb-5">
-          <h1>The Reading Room</h1>
-        </section>
 
-        <section id="form_input_book">
-          <form>
-            <!-- inputan judul buku -->
-            <div class="mb-3 d-flex">
-              <label for="input_book" class="form-label fw-bold w-25 px-2"
-                >Book Title</label
-              >
-              <input type="text" class="form-control" id="input_book" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Reading Room</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+</head>
+
+<body>
+  <main class="d-flex justify-content-center mx-auto vh-100 pt-2">
+    <div class="w-75 border px-2">
+      <section class="text-center mb-5">
+        <h1>The Reading Room</h1>
+      </section>
+
+      <section id="form_input_book">
+        <form>
+          <!-- inputan judul buku -->
+          <div class="mb-3 d-flex">
+            <label for="input_book" class="form-label fw-bold w-25 px-2">Book Title</label>
+            <input type="text" class="form-control" id="input_book" />
 
             <div id="input_book_help" class="form-text">
             </div>
-            </div>
-            <div class="mb-3 d-flex">
-              <label for="book_creator" class="form-label fw-bold w-25 px-2"
-                >Book Creator</label
-              >
-              <input type="text" class="form-control" id="book_creator" />
-            </div>
+          </div>
+          <div class="mb-3 d-flex">
+            <label for="book_creator" class="form-label fw-bold w-25 px-2">Book Creator</label>
+            <input type="text" class="form-control" id="book_creator" />
+          </div>
 
-            <!-- button untuk submit data -->
-            <div class="text-end py-2">
-              <button type="submit" class="btn border px-3">Add List</button>
-            </div>
-          </form>
-        </section>
+          <!-- button untuk submit data -->
+          <div class="text-end py-2">
+            <button type="submit" class="btn border px-3">Add List</button>
+          </div>
+        </form>
+      </section>
 
-        <section id="book_list" class="pt-3">
-          <div style="max-height: 400px; overflow-y: auto">
-            <div style="grid-template-columns: repeat(3, 150px); justify-content: center;" class="d-grid gap-3">
-            </div>
-             
-            </div>
-        </section>
+      <section id="book_list" class="pt-3">
+        <div style="max-height: 400px; overflow-y: auto">
+          <div style="grid-template-columns: repeat(3, 150px); justify-content: center;" class="d-grid gap-3">
+          </div>
 
-    </main>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      let form = document.querySelector("form");
-      let inputBook = document.getElementById("input_book");
-      let inputCreator = document.getElementById("book_creator");
-      let grid = document.querySelector(".d-grid");
+        </div>
+      </section>
 
-      form.addEventListener("submit", function(e){
-        e.preventDefault();
-        let title = inputBook.value;
-        let creator = inputCreator.value;
-        if(title === "" || creator === ""){
-          return;
-        }
-        grid.innerHTML +=
-        '<div class="card position-relative border border-1 border-dark p-2" id="per_card">' +
-          '<div class="card-header fw-bold bg-secondary text-white" id="title">' + title + '</div>' +
-            '<div class="card-body">' + creator + '<div>' +
-              '<button onclick="toggleDone(this)" class="btn btn-success btn-sm m-1">Done</button>' +
-              '<button onclick="deleteCard(this)" class="btn btn-danger btn-sm m-1">Delete</button>' +
-            '</div>' +
-            '</div>';
-        inputBook.value = "";
-        inputCreator.value = "";
-      });
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  
+<script>
+  let form = document.querySelector("form");
+  let inputBook = document.getElementById("input_book");
+  let inputCreator = document.getElementById("book_creator");
+  let grid = document.querySelector(".d-grid");
 
-      function toggleDone(btn){
-        if(btn.innerText === "Done"){
-          btn.innerText = "Not Done";
-          btn.classList.remove("btn-success");
-          btn.classList.add("btn-secondary");
-        } else{
-          btn.innerText = "Done";
-          btn.classList.remove("btn-secondary");
-          btn.classList.add("btn-success");
-        }
-      }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-      function deleteCard(btn){
-        let perCard = document.getElementById("per_card");
-        let title = document.getElementById("title");
-       
-        let textConfirm = `Are you sure delete "${title.innerText}"" book??`
-        if (confirm(textConfirm) == true) {
-          perCard.remove()
-        } else {
-          return
-        }
-      }
+    let bookTitle = inputBook.value;
+    let creator = inputCreator.value;
 
-    </script>
-  </body>
+    if (bookTitle === "" || creator === "") return;
+
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    let newBook = {
+      title: bookTitle,
+      creator: creator,
+    };
+
+    books.push(newBook);
+    localStorage.setItem("books", JSON.stringify(books));
+
+    inputBook.value = "";
+    inputCreator.value = "";
+
+    renderItem();
+  });
+
+  function renderItem() {
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    grid.innerHTML = "";
+
+    for (let i = 0; i < books.length; i++) {
+      let book = books[i];
+
+      grid.innerHTML += `
+        <div class="card position-relative border border-1 border-dark p-2" data-index="${i}">
+          <div class="card-header fw-bold bg-secondary text-white">${book.title}</div> 
+          <div class="card-body">${book.creator}</div>
+          <button onclick="toggleDone(this)" class="btn btn-success btn-sm m-1">Done</button>
+          <button onclick="deleteCard(this)" class="btn btn-danger btn-sm m-1">Delete</button>
+        </div>
+      `;
+    }
+  }
+
+  renderItem();
+
+  function toggleDone(btn) {
+    if (btn.innerText === "Done") {
+      btn.innerText = "Not Done";
+      btn.classList.remove("btn-success");
+      btn.classList.add("btn-secondary");
+    } else {
+      btn.innerText = "Done";
+      btn.classList.remove("btn-secondary");
+      btn.classList.add("btn-success");
+    }
+  }
+
+  function deleteCard(btn) {
+    let card = btn.closest(".card");
+    let index = card.getAttribute("data-index");
+
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    let textConfirm = `Are you sure delete "${books[index].title}" book??`;
+
+    if (confirm(textConfirm)) {
+      books.splice(index, 1);
+      localStorage.setItem("books", JSON.stringify(books));
+      renderItem();
+    }
+  }
+</script>
+
+</body>
+
 </html>
