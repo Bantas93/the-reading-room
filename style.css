@@ -1,0 +1,48 @@
+.titlecolour {
+  color: #4a3728;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+body {
+  background-color: #442d1c;
+  font-family: "Segoe UI", sans-serif;
+}
+
+main > .border {
+  background-color: #98755b;
+  border-radius: 12px;
+  border-color: #d9cdc4 !important;
+}
+
+#form_input_book {
+  background-color: #e7d4bb;
+  border: 1px solid #e7d4bb;
+  border-radius: 10px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  color: #4a3728;
+  font-size: 0.9rem;
+}
+
+.form-control {
+  border-color: #4a3728;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #4a3728;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.88rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #6b5040;
+}

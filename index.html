@@ -7,29 +7,31 @@
   <title>The Reading Room</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <main class="d-flex justify-content-center mx-auto vh-100 pt-2">
     <div class="w-75 border px-2">
       <section class="text-center mb-5">
-        <h1>The Reading Room</h1>
+        <h1 class="titlecolour">The Reading Room</h1>
       </section>
 
       <section id="form_input_book">
+
         <form>
           <!-- inputan judul buku -->
           <div class="mb-3 d-flex">
             <label for="input_book" class="form-label fw-bold w-25 px-2">Book Title</label>
             <input type="text" class="form-control" id="input_book" />
-
-            <div id="input_book_help" class="form-text">
+          <div id="input_book_help" class="form-text">
             </div>
           </div>
+
           <div class="mb-3 d-flex">
             <label for="book_creator" class="form-label fw-bold w-25 px-2">Book Creator</label>
             <input type="text" class="form-control" id="book_creator" />
-          </div>
+          
 
           <!-- button untuk submit data -->
           <div class="text-end py-2">
@@ -59,12 +61,16 @@
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-
     let bookTitle = inputBook.value;
     let creator = inputCreator.value;
-
-    if (bookTitle === "" || creator === "") return;
-
+    
+    if (bookTitle === "" || creator === ""){
+      let para = document.getElementById("input_book_help")
+      para.innerHTML = `<div class="d-flex"> Salah satu input tidak boleh kosong </div>`
+      inputBook.parentElement.appendChild(para);
+      return;
+    }
+    
     let books = JSON.parse(localStorage.getItem("books")) || [];
 
     let newBook = {
