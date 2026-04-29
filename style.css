@@ -2,7 +2,7 @@
   color: #4a3728;
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 10px;
 }
 
 body {
@@ -57,4 +57,17 @@ button[type="submit"]:hover {
 
 .old-brown-text {
   color: #6b5040 !important;
+}
+
+.noto-sans-display {
+  font-family: "Noto Sans Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+.playwrite-nz-guides-regular {
+  font-family: "Playwrite NZ Guides", cursive;
+  font-weight: 800;
+  font-style: normal;
 }
