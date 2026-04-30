@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <main class="d-flex justify-content-center mx-auto vh-100 pt-2">
+  <main class="d-flex justify-content-center mx-auto min-vh-100 pt-2">
     <div class="w-75 border px-4">
       <section class="text-center mb-5">
         <h1 class="titlecolour pt-2 noto-sans-display playwrite-nz-guides-regular">The Reading Room</h1>
@@ -45,6 +45,7 @@
           <div class="text-end py-2">
             <button type="submit" class="btn border px-3">Add List</button>
           </div>
+
         </form>
       </section>
 
@@ -52,14 +53,17 @@
         <div class="row mb-4">
           <div class="col-5"><input class="form-label form-control fst-italic border border-1 d-inline-flex focus-ring focus-ring-secondary py-1 px-2 text-decoration-none border rounded-2" type="text"
               placeholder="Search book" aria-label="default input example" id="search_input"></div>
-          <div class="col-7 text-center"></div>
-        </div>
-
-        <div style="max-height: 400px;" class="overflow-y-auto">
-          <div style="grid-template-columns: repeat(4, 150px); justify-content: center;" class="d-grid gap-3">
+          <div class="col-7 text-end">
+              <audio controls autoplay loop class="audio-player">
+                <source src="backgroundmusic.mp3">
+              </audio>
           </div>
         </div>
 
+        <div style="max-height: 400px;" class="overflow-y-auto">
+          <div class="d-grid gap-3 grid-container">
+          </div>
+        </div>
 
     </div>
     </div>
@@ -191,7 +195,6 @@
       }
     }
   </script>
-
 
 </body>
 

@@ -47,6 +47,17 @@ button[type="submit"]:hover {
   background-color: #6b5040;
 }
 
+.card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+}
+
 .old-brown {
   background-color: #6b5040 !important;
 }
@@ -70,4 +81,10 @@ button[type="submit"]:hover {
   font-family: "Playwrite NZ Guides", cursive;
   font-weight: 800;
   font-style: normal;
+}
+
+.audio-player {
+  width: 100%;
+  max-width: 300px;
+  height: 30px;
 }
